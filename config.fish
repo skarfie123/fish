@@ -17,6 +17,7 @@ alias ef="exec fish"
 alias gs="git status"
 alias gl="git log"
 alias gch="git checkout"
+alias gchb="git checkout -b"
 alias gchm="git checkout \$(git config init.defaultBranch)"
 alias ga="git add"
 alias gaa="ga -A"
@@ -57,8 +58,9 @@ alias ffpr="ffprobe -hide_banner"
 alias fr="kill $(ps -ax | grep -e flameshot | grep -v grep | awk '{print $1}'); open -a flameshot"
 alias docker_nuke="docker kill \$(docker ps -q)"
 alias docker_nuke_pro="docker rm \$(docker ps -a -q)"
-alias ptest="./pants test --debug"
-alias pdb="ptest test.py -- -s -k test_function --pdbcls=IPython.terminal.debugger:Pdb"
+alias ptest="pants test --debug"
+alias pdb_old="ptest test.py -- -s -k test_function --pdbcls=IPython.terminal.debugger:Pdb"
+alias pdb="pants test --debug-adapter"
 alias itp="set -gx ITERMPLOT rv;set -gx MPLBACKEND \"module://itermplot\""
 alias q="quicksearch search"
 alias ql="quicksearch list"
@@ -66,6 +68,17 @@ alias qc="quicksearch config"
 alias edit="code ~/.config/fish"
 alias pgadmin="docker run -e PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org -e PGADMIN_DEFAULT_PASSWORD=admin -p 5050:80 dpage/pgadmin4"
 alias prune="docker system prune --volumes"
+alias sshregen="ssh-keygen -f ~/.ssh/known_hosts -R"
+
+alias b64d="python -c \"import base64; code = input('Enter text to decode: '); print(base64.b64decode(code).decode())\""
+alias b64e="python -c \"import base64; code = input('Enter text to encode: '); print(base64.b64encode(code.encode()).decode())\""
+alias inkscape="/Applications/Inkscape.app/Contents/MacOS/inkscape"
+alias mmd="npx @mermaid-js/mermaid-cli -b \"#DDD\" -s 2 -e png -i"
+
+function svgtopng -a file
+    inkscape --export-type="png" $file
+end
+
 
 # TODO: eval "$(quicksearch shell zsh)"
 
@@ -75,3 +88,7 @@ end
 
 # bind \cd delete-or-exit # this is the default
 bind \cd delete-char
+
+# Created by `pipx` on 2023-07-18 10:41:55
+set PATH $PATH /Users/rahul.pai/.local/bin
+source /Users/rahul.pai/.config/op/plugins.sh

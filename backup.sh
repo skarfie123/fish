@@ -1,1 +1,1 @@
-cp -r ~/.config/fish .
+cp -r ~/.config/fish/ .
