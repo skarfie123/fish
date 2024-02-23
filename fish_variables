@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export PYENV_ROOT:/Users/rahul\x2epai\x40tessian\x2ecom/\x2epyenv
+SETUVAR --export PYENV_ROOT:/Users/rahul\x2epai/\x2epyenv
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_ll2:ls\x20\x2dl
 SETUVAR budspencer_colors:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900
@@ -39,4 +39,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/usr/local/opt/fzf/bin
+SETUVAR fish_user_paths:/Users/rahul\x2epai/GitHub/PlutoFlume/tools/aws/bin\x1e/Users/rahul\x2epai/\x2elocal/bin\x1e/opt/homebrew/bin\x1e/usr/local/opt/fzf/bin
