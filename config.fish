@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set GITHUB "$HOME/GITHUB"
+set GITHUB "$HOME/GitHub"
 set S "$GITHUB/skarfie123"
 set -gx LESS -XFR # enable line wrapping + more for pgcli
 
@@ -90,5 +90,7 @@ end
 bind \cd delete-char
 
 # Created by `pipx` on 2023-07-18 10:41:55
-set PATH $PATH /Users/rahul.pai/.local/bin
-source /Users/rahul.pai/.config/op/plugins.sh
+set PATH $PATH ~/.local/bin
+if test -f ~/.config/op/plugins.sh
+    source .config/op/plugins.sh
+end
