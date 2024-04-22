@@ -44,8 +44,13 @@ alias e="exit 0"
 alias op_signin="eval \$(op signin --account tessian)"
 alias ipy="ptipython"
 # TODO: alias gbl="for i in \$(git diff --name-only); do bl \$i; done;"
-alias ls="lsd"
+if which lsd
+    alias ls="lsd"
+end
 alias ll="ls -la"
+if which bat
+    alias cat="bat"
+end
 alias che="chmod u+x"
 set -gx GREP_OPTIONS '--color=auto'
 alias todo="grep -rnEi --colour=always  \"# \?|# TODO|# FIXME|# HACK|\[ \]|\[x\]\""
@@ -65,7 +70,7 @@ alias itp="set -gx ITERMPLOT rv;set -gx MPLBACKEND \"module://itermplot\""
 alias q="quicksearch search"
 alias ql="quicksearch list"
 alias qc="quicksearch config"
-alias edit="code ~/.config/fish"
+alias edit="code $S/fish"
 alias pgadmin="docker run -e PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org -e PGADMIN_DEFAULT_PASSWORD=admin -p 5050:80 dpage/pgadmin4"
 alias prune="docker system prune --volumes"
 alias sshregen="ssh-keygen -f ~/.ssh/known_hosts -R"
