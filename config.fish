@@ -103,3 +103,11 @@ end
 if which fzf
     fzf --fish | source
 end
+
+if which pyenv
+    pyenv init - | source
+end
+
+if which pyenv-virtualenv
+    pyenv virtualenv-init - | source
+end
