@@ -85,7 +85,7 @@ function svgtopng -a file
 end
 
 
-# TODO: eval "$(quicksearch shell zsh)"
+quicksearch shell fish | source
 
 if test -f ~/.config/fish/work.fish
     source ~/.config/fish/work.fish
