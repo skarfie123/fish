@@ -99,3 +99,7 @@ set PATH $PATH ~/.local/bin
 if test -f ~/.config/op/plugins.sh
     source .config/op/plugins.sh
 end
+
+if which fzf
+    fzf --fish | source
+end
