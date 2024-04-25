@@ -5,6 +5,7 @@ end
 set GITHUB "$HOME/GitHub"
 set S "$GITHUB/skarfie123"
 set -gx LESS -XFR # enable line wrapping + more for pgcli
+set -gx EDITOR nano
 
 #folders
 alias gh="cd $GITHUB"
@@ -25,8 +26,6 @@ alias gc="git commit -m"
 alias gca="git commit -a -m"
 alias gcaa="gaa; gc"
 alias gcu="git reset --soft HEAD~1"
-# alias gcap="gca; gpu"
-# alias gcp="gc; gpu"
 alias gb="git branch"
 alias gd="git diff"
 alias gdc="git diff --cached"
@@ -44,18 +43,11 @@ alias e="exit 0"
 alias op_signin="eval \$(op signin --account tessian)"
 alias ipy="ptipython"
 # TODO: alias gbl="for i in \$(git diff --name-only); do bl \$i; done;"
-if which lsd
-    alias ls="lsd"
-end
-alias ll="ls -la"
-if which bat
-    alias cat="bat"
-end
 alias che="chmod u+x"
 set -gx GREP_OPTIONS '--color=auto'
 alias todo="grep -rnEi --colour=always  \"# \?|# TODO|# FIXME|# HACK|\[ \]|\[x\]\""
 alias del="rm"
-alias ydl="youtube-dl"
+alias ydl="yt-dlp"
 alias ydlmp3="ydl -x --audio-format mp3"
 alias ffm="ffmpeg -hide_banner"
 alias ffp="ffplay -hide_banner"
@@ -100,14 +92,56 @@ if test -f ~/.config/op/plugins.sh
     source .config/op/plugins.sh
 end
 
-if which fzf
-    fzf --fish | source
-end
-
 if which pyenv
     pyenv init - | source
 end
 
 if which pyenv-virtualenv
     pyenv virtualenv-init - | source
+end
+
+if which lsd
+    alias ls="lsd"
+end
+alias ll="ls -la"
+if which bat
+    alias cat="bat"
+end
+if which gdu-go
+    alias du="gdu-go"
+end
+if which fd
+    alias find="fd"
+end
+if which rg
+    alias grep="rg"
+end
+
+if which fzf
+    fzf --fish | source
+end
+
+if which zoxide
+    zoxide init fish --cmd cd | source
+end
+
+function cheat.sh
+    curl cheat.sh/$argv
+end
+function cht.sh
+    curl cht.sh/$argv
+end
+
+# register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
+complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
+complete -c cht.sh -xa '(curl -s cht.sh/:list)'
+
+# TODO: how do fish functions work?
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
 end
