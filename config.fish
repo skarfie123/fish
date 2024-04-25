@@ -42,6 +42,7 @@ alias git_chm_p_count="gchm; gp; git shortlog -s --author \"Rahul Pai\""
 alias e="exit 0"
 alias op_signin="eval \$(op signin --account tessian)"
 alias ipy="ptipython"
+alias ll="ls -la"
 # TODO: alias gbl="for i in \$(git diff --name-only); do bl \$i; done;"
 alias che="chmod u+x"
 set -gx GREP_OPTIONS '--color=auto'
@@ -103,7 +104,6 @@ end
 if which lsd
     alias ls="lsd"
 end
-alias ll="ls -la"
 if which bat
     alias cat="bat"
 end
@@ -140,8 +140,8 @@ complete -c cht.sh -xa '(curl -s cht.sh/:list)'
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	yazi $argv --cwd-file="$tmp"
-	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		cd -- "$cwd"
+	if set cwd (/bin/cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
 	end
 	rm -f -- "$tmp"
 end
