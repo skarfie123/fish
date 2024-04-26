@@ -1,3 +1,4 @@
 work.fish
 completions/
 functoins/fzf_key_bindings.fish
+fish_variables
