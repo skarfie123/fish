@@ -4,8 +4,11 @@ end
 
 set GITHUB "$HOME/GitHub"
 set S "$GITHUB/skarfie123"
-set -gx LESS -XFR # enable line wrapping + more for pgcli
-set -gx EDITOR nano
+
+# https://www.pgcli.com/pager
+set -gx LESS -SXFR # disable line wrapping + more for pgcli
+
+set -gx EDITOR ~/GitHub/skarfie123/settings/code_wait.sh
 
 #folders
 alias gh="cd $GITHUB"
