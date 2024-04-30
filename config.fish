@@ -77,6 +77,7 @@ function svgtopng -a file
     inkscape --export-type="png" $file
 end
 
+eval "$(ssh-agent -c)"
 
 quicksearch shell fish | source
 
