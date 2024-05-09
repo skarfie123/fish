@@ -10,6 +10,9 @@ set -gx LESS -SXFR # disable line wrapping + more for pgcli
 
 set -gx EDITOR ~/GitHub/skarfie123/settings/code_wait.sh
 
+# https://www.reddit.com/r/fishshell/comments/176ahss/tip_you_can_use_function_subfolders_with_this/
+set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
+
 #folders
 alias gh="cd $GITHUB"
 alias s="cd $S"
@@ -35,6 +38,8 @@ alias gdc="git diff --cached"
 alias gp="git pull"
 alias gpom="git pull origin master"
 alias gpu="git push"
+alias gt="git town"
+alias gts="git town switch"
 # TODO: alias gt="for f in \$(git diff --name-only --cached); do todo \$f; done"
 alias trigger="git commit --allow-empty -m \"Trigger CI\""
 alias pause="read -p \"Press [Enter] key to continue...\""
@@ -97,6 +102,7 @@ if test -f ~/.config/op/plugins.sh
     source .config/op/plugins.sh
 end
 
+set -gx PYENV_VIRTUALENV_DISABLE_PROMPT 1
 if which pyenv
     pyenv init - | source
 end
