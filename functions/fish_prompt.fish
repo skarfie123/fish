@@ -1,4 +1,5 @@
 function fish_prompt
+    set actual_status $status
     set_color brwhite
     echo -n " "(date "+%F %H:%M:%S")" "
     echo -n \ue0c7
@@ -32,6 +33,14 @@ function fish_prompt
         # (git status --porcelain | wc -l | tr -d ' ')
         set_color green
         set latest_colour green
+    end
+    if test "$actual_status" != "0"
+        set_color -b red
+        echo -n \ue0b0
+        set_color black
+        echo -n " $actual_status "
+        set_color red
+        set latest_colour red
     end
     set_color normal
     set_color $latest_colour
