@@ -44,7 +44,6 @@ alias fr="kill $(ps -ax | grep -e flameshot | grep -v grep | awk '{print $1}'); 
 alias docker_nuke="docker kill \$(docker ps -q)"
 alias docker_nuke_pro="docker rm \$(docker ps -a -q)"
 alias pgadmin="docker run -e PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org -e PGADMIN_DEFAULT_PASSWORD=admin -p 5050:80 dpage/pgadmin4"
-alias prune="docker system prune --volumes"
 alias ptest="pants test --debug"
 alias pdb_old="ptest test.py -- -s -k test_function --pdbcls=IPython.terminal.debugger:Pdb"
 alias pdb="pants test --debug-adapter"
