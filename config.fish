@@ -53,8 +53,8 @@ alias ql="quicksearch list"
 alias qc="quicksearch config"
 alias sshregen="ssh-keygen -f ~/.ssh/known_hosts -R"
 
-alias b64d="python -c \"import base64; code = input('Enter text to decode: '); print(base64.b64decode(code).decode())\""
-alias b64e="python -c \"import base64; code = input('Enter text to encode: '); print(base64.b64encode(code.encode()).decode())\""
+alias b64d="python -c \"import base64; import sys; code = (sys.argv[1:] and sys.argv[1]) or input('Enter text to decode: '); print(base64.b64decode(code).decode())\""
+alias b64e="python -c \"import base64; import sys; code = (sys.argv[1:] and sys.argv[1]) or input('Enter text to encode: '); print(base64.b64encode(code.encode()).decode())\""
 alias inkscape="/Applications/Inkscape.app/Contents/MacOS/inkscape"
 alias mmd="npx @mermaid-js/mermaid-cli -b \"#DDD\" -s 2 -e png -i"
 
