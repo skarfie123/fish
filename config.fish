@@ -66,8 +66,8 @@ eval "$(ssh-agent -c)"
 
 quicksearch shell fish | source
 
-if test -f ~/.config/fish/work.fish
-    source ~/.config/fish/work.fish
+if test -f $S/fish/work.fish
+    source $S/fish/work.fish
 end
 
 # bind \cd delete-or-exit # this is the default
