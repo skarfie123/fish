@@ -62,7 +62,6 @@ function svgtopng -a file
     inkscape --export-type="png" $file
 end
 
-# https://wiki.archlinux.org/title/Fish#Evaluate_ssh-agent
 eval "$(ssh-agent -c)"
 
 quicksearch shell fish | source
@@ -123,13 +122,3 @@ end
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
 complete -c cht.sh -xa '(curl -s cht.sh/:list)'
-
-# TODO: how do fish functions work?
-function yy
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (/bin/cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		builtin cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
-end
