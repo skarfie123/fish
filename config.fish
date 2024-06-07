@@ -62,6 +62,7 @@ function svgtopng -a file
     inkscape --export-type="png" $file
 end
 
+# https://wiki.archlinux.org/title/Fish#Evaluate_ssh-agent
 eval "$(ssh-agent -c)"
 
 quicksearch shell fish | source
