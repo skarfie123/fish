@@ -59,7 +59,7 @@ alias inkscape="/Applications/Inkscape.app/Contents/MacOS/inkscape"
 alias mmd="npx @mermaid-js/mermaid-cli -b \"#DDD\" -s 2 -e png -i"
 
 function svgtopng -a file
-    inkscape --export-type="png" $file
+    inkscape --export-type="png" -d 384 $file
 end
 
 eval "$(ssh-agent -c)"
