@@ -16,11 +16,11 @@ function fish_prompt
         set_color yellow
         set latest_colour yellow
     end
-    if test -n "$PYENV_VIRTUAL_ENV"
+    if test -n "$VIRTUAL_ENV"
         set_color -b F70
         echo -n \ue0b0
         set_color black
-        echo -n " "(basename $PYENV_VIRTUAL_ENV)" "
+        echo -n " "(basename $VIRTUAL_ENV)" "
         set_color F70
         set latest_colour F70
     end
