@@ -79,6 +79,7 @@ if test -f ~/.config/op/plugins.sh
     source .config/op/plugins.sh
 end
 
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx PYENV_VIRTUALENV_DISABLE_PROMPT 1
 if which pyenv
     pyenv init - | source
