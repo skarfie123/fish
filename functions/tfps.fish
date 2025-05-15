@@ -10,7 +10,21 @@ function tfps --description 'short terraform plan'
   #
   # Finally, run the output through another array pull to turn the array of strings into just strings.
 
-  terraform plan -json | \
+  set PLAN $(terraform plan -json)
+
+  if test $status -ne 0
+    echo "$PLAN" | \
+      jq --slurp --raw-output '
+        map(
+          select(.["@level"] == "error") |
+            "\(.["@message"]):\n    filename: \(.diagnostic.range.filename)\n    context: \(.diagnostic.snippet.context)\n    code: \(.diagnostic.snippet.code)\n"
+        ) |
+        .[]
+      ' 
+    return 1
+  end
+
+  echo "$PLAN" | \
     jq --slurp --raw-output '
       map(
         select(.type == "planned_change") |
