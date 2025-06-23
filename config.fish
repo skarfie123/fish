@@ -14,7 +14,7 @@ set -gx EDITOR ~/GitHub/skarfie123/settings/code_wait.sh
 set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
 
 #folders
-alias gh="cd $GITHUB"
+# alias gh="cd $GITHUB"
 alias s="cd $S"
 alias home="cd $HOME"
 
