@@ -17,7 +17,7 @@ function tfps --description 'short terraform plan'
       jq --slurp --raw-output '
         map(
           select(.["@level"] == "error") |
-            "\(.["@message"]):\n    filename: \(.diagnostic.range.filename)\n    context: \(.diagnostic.snippet.context)\n    code: \(.diagnostic.snippet.code)\n"
+            "\(.["@message"]):\n    filename: \(.diagnostic.range.filename)\n    context: \(.diagnostic.snippet.context)\n    code: \(.diagnostic.snippet.code)\n    detail: \(.diagnostic.detail)\n"
         ) |
         .[]
       ' 
