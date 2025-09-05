@@ -4,14 +4,15 @@ end
 
 set GITHUB "$HOME/GitHub"
 set S "$GITHUB/skarfie123"
+set FISHGIT "$S/fish"
 
 # https://www.pgcli.com/pager
 set -gx LESS -SXFR # disable line wrapping + more for pgcli
 
-set -gx EDITOR ~/GitHub/skarfie123/settings/code_wait.sh
+set -gx EDITOR "$S/settings/code_wait.sh"
 
 # https://www.reddit.com/r/fishshell/comments/176ahss/tip_you_can_use_function_subfolders_with_this/
-set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
+set fish_function_path $FISHGIT/functions (path resolve $FISHGIT/functions/*/) $fish_function_path
 
 #folders
 # alias gh="cd $GITHUB"
