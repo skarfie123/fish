@@ -1,8 +1,6 @@
 function gdcopy --wraps=\\\(gd\\\)\ \|\ pbcopy
     begin
-        echo '<details>
-
-<summary>Git diff</summary>
+        echo '<details><summary>Git diff</summary>
 
 ```diff'
         gd
