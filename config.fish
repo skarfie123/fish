@@ -4,14 +4,15 @@ end
 
 set GITHUB "$HOME/GitHub"
 set S "$GITHUB/skarfie123"
+set FISHGIT "$S/fish"
 
 # https://www.pgcli.com/pager
 set -gx LESS -SXFR # disable line wrapping + more for pgcli
 
-set -gx EDITOR ~/GitHub/skarfie123/settings/code_wait.sh
+set -gx EDITOR "$S/settings/code_wait.sh"
 
 # https://www.reddit.com/r/fishshell/comments/176ahss/tip_you_can_use_function_subfolders_with_this/
-set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
+set fish_function_path $FISHGIT/functions (path resolve $FISHGIT/functions/*/) $fish_function_path
 
 #folders
 # alias gh="cd $GITHUB"
@@ -59,7 +60,7 @@ alias inkscape="/Applications/Inkscape.app/Contents/MacOS/inkscape"
 alias mmd="npx @mermaid-js/mermaid-cli -b \"#DDD\" -s 2 -e png -i"
 
 function svgtopng -a file
-    inkscape --export-type="png" -d 384 $file
+    inkscape --export-type="png" $file
 end
 
 eval "$(ssh-agent -c)"
@@ -125,6 +126,7 @@ function cht.sh
     curl cht.sh/$argv
 end
 
+set -gx AWS_CLI_AUTO_PROMPT on-partial
 # Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
