@@ -89,6 +89,11 @@ if which pyenv-virtualenv
     pyenv virtualenv-init - | source
 end
 
+if which uv
+    echo 'uv generate-shell-completion fish | source' > ~/.config/fish/completions/uv.fish
+    echo 'uvx --generate-shell-completion fish | source' > ~/.config/fish/completions/uvx.fish
+end
+
 if which lsd
     alias ls="lsd"
 end
