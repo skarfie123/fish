@@ -22,5 +22,5 @@ function newpr
     set INDEX (math "$PR_COUNT + $BRANCH_COUNT + 1")
     set BRANCH_NAME "$USER/$ISSUE_ID-$ISSUE_TITLE-$INDEX"
     echo "Creating branch: $BRANCH_NAME"
-    gh issue develop $ISSUE_ID --repo $OWNER/$REPO --branch-repo $OWNER/(basename (git rev-parse --show-toplevel)) -c -n $BRANCH_NAME
+    gh issue develop $ISSUE_ID --repo $OWNER/$REPO --branch-repo $OWNER/(basename (git rev-parse --show-toplevel)) -n $BRANCH_NAME $argv[4..-1]
 end
