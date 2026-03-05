@@ -20,7 +20,7 @@ alias s="cd $S"
 alias home="cd $HOME"
 
 alias ef="exec fish"
-alias edit="code $S/fish"
+alias editfish="code $S/fish"
 
 #tools
 # TODO: alias gt="for f in \$(git diff --name-only --cached); do todo \$f; done"
