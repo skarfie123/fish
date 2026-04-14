@@ -1,4 +1,4 @@
-function gwah --wraps='gwa (git symbolic-ref --short HEAD)' --description 'alias gwah=gwa (git symbolic-ref --short HEAD)'
-  gwa (git symbolic-ref --short HEAD) $argv
-        
+function gwah
+  set CURRENT_BRANCH (git symbolic-ref --short HEAD)
+  git-no-diff && gswm && gwa $CURRENT_BRANCH $argv
 end
