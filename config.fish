@@ -119,6 +119,10 @@ if which zoxide
     zoxide init fish --cmd cd | source
 end
 
+if which dotnet
+    dotnet completions script fish | source
+end
+
 function cheat.sh
     curl cheat.sh/$argv
 end
